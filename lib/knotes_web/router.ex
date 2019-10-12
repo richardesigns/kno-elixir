@@ -19,6 +19,8 @@ defmodule KnotesWeb.Router do
     get "/", PageController, :index
     post "/sign-in", SessionController, :create
     delete "/sign-out", SessionController, :delete
+    # IF no JS
+    get "/sign-out", SessionController, :delete
 
     resources "/notes", NoteController
   end
