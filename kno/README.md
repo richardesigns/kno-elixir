@@ -20,6 +20,8 @@ end
 
 Run `mix deps.get` to install it.
 
+Errors are hard, buttons are hard
+
 ## Getting Started
 
 ### Phoenix application
