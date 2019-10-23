@@ -68,3 +68,32 @@ end
 ### Direct API usage
 
 Kno.API.verify_token()
+
+```eex
+<%= if authenticated?(@conn) do %>
+  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out) %>
+<% else %>
+  <%= form_for @conn, Routes.session_path(@conn, :sign_in), fn _form -> %>
+    <script
+      src="https://trykno.app/pass.js"
+      data-site="<%= Application.get_env(:my_app, :kno_site_token) %>">
+    </script>
+
+    <%= submit "Sign in" %>
+  <% end %>
+<% end %>
+```
+```erb
+<%= if authenticated?(@conn) do %>
+  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out) %>
+<% else %>
+  <%= form_for @conn, Routes.session_path(@conn, :sign_in), fn _form -> %>
+    <script
+      src="https://trykno.app/pass.js"
+      data-site="<%= Application.get_env(:my_app, :kno_site_token) %>">
+    </script>
+
+    <%= submit "Sign in" %>
+  <% end %>
+<% end %>
+```
